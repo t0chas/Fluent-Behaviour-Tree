@@ -1,4 +1,5 @@
-# Fluent-Behaviour-Tree
+# Fluent-Behaviour-Tree 
+[![Build status](https://ci.appveyor.com/api/projects/status/owvs1u08jbmjiqx7?svg=true)](https://ci.appveyor.com/project/t0chas/fluent-behaviour-tree)
 
 C# behaviour tree library with a fluent API.
 
