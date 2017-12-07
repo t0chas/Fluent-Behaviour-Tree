@@ -14,15 +14,18 @@ namespace FluentBehaviourTree
         /// The name of the node.
         /// </summary>
         private string name;
+        
+        private bool keepState;
 
         /// <summary>
         /// List of child nodes.
         /// </summary>
         private List<IBehaviourTreeNode> children = new List<IBehaviourTreeNode>(); //todo: optimization, bake this to an array.
 
-        public SelectorNode(string name)
+        public SelectorNode(string name, bool keepState = false)
         {
             this.name = name;
+            this.keepState = keepState;
         }
 
         private IEnumerator<IBehaviourTreeNode> enumerator;
@@ -34,7 +37,7 @@ namespace FluentBehaviourTree
 
         public BehaviourTreeStatus Tick(TimeData time)
         {
-            if (this.enumerator == null)
+            if (this.enumerator == null || !this.keepState)
                 this.Init();
             if (this.enumerator.Current == null)
                 this.enumerator.MoveNext();

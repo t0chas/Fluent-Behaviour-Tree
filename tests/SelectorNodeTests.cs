@@ -12,9 +12,9 @@ namespace tests
     {
         SelectorNode testObject;
 
-        void Init()
+        void Init(bool keepState = false)
         {
-            testObject = new SelectorNode("some-selector");
+            testObject = new SelectorNode("some-selector", keepState);
         }
 
         [Fact]
@@ -119,7 +119,7 @@ namespace tests
         [Fact]
         public void selector_only_evaluates_the_current_node()
         {
-            Init();
+            Init(true);
 
             var time = new TimeData();
 
