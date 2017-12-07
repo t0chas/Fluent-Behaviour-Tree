@@ -12,9 +12,9 @@ namespace tests
     {
         SequenceNode testObject;
 
-        void Init()
+        void Init(bool keepState = false)
         {
-            testObject = new SequenceNode("some-sequence");
+            testObject = new SequenceNode("some-sequence", keepState);
         }
         
         [Fact]
@@ -130,7 +130,7 @@ namespace tests
         [Fact]
         public void sequence_only_evaluates_the_current_node()
         {
-            Init();
+            Init(true);
 
             var time = new TimeData();
 
